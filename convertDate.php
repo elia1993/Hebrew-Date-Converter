@@ -29,13 +29,13 @@
 <?php
  if((isset($_GET["date"]))) {
      $date = $_GET["date"];
-     $new_date = explode("-",$date);
+     $new_date = explode("-",$date); //split a string with a separator (Specifies where to break the string) and returns an array of strings.
      $year = $new_date[2];
      $month = $new_date[1];
      $day = $new_date[0];
      $url = "https://www.hebcal.com/converter?cfg=json&gy=$year&gm=$month&gd=$day&g2h=1";
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $url);
+    $curl = curl_init(); // create a new cURL resource
+    curl_setopt($curl, CURLOPT_URL, $url); / set URL and other appropriate options
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $hebrew_date = json_decode(curl_exec($curl), true);
    $converted_date = $hebrew_date["hebrew"];
