@@ -35,7 +35,7 @@
      $day = $new_date[0];
      $url = "https://www.hebcal.com/converter?cfg=json&gy=$year&gm=$month&gd=$day&g2h=1";
     $curl = curl_init(); // create a new cURL resource
-    curl_setopt($curl, CURLOPT_URL, $url); / set URL and other appropriate options
+    curl_setopt($curl, CURLOPT_URL, $url); // set URL and other appropriate options
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $hebrew_date = json_decode(curl_exec($curl), true);
    $converted_date = $hebrew_date["hebrew"];
