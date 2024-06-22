@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hebrew-date-converter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hebrew-date-converter
+  template:
+    metadata:
+      labels:
+        app: hebrew-date-converter
+    spec:
+      containers:
+      - name: hebrew-date-converter
+        image: elia1993/hebrew-date-converter:latest
+        ports:
+        - containerPort: 80

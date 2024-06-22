@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: hebrew-date-converter
 spec:
-  selector:
-    app: hebrew-date-converter
+  type: NodePort  # Change the service type to NodePort
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
+    - port: 80    # Port on which the service will be exposed internally (ClusterIP)
+      targetPort: 80  # Port on which your application is running inside the cluster
+      nodePort: 30365  # Specify the node port (use a port number in the range 30000-32767)
+  selector:
+    app: hebrew-date-converter  # Match this selector to your deployment or pods
